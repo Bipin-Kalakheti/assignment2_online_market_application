@@ -87,7 +87,10 @@ app.delete('/products/:id', async (req, res) => {
 
 app.delete('/products', async (req, res) => {
     try {
-        const products = await Product.find({});
+
+        const products = await Product.deleteMany({});
+
+
         res.status(200).json(products);
     } catch (error) {
         res.status(500).json({message: error.message});
